@@ -25,7 +25,7 @@ var init = function (window) {
 
 
         // TODO 2 : Create a function that draws a circle 
-        function drawCircle(parameters) {
+        function drawCircle() {
         circle = draw. randomCircleInArea(canvas, true, true, "#999", 2);
         physikz.addRandomVelocity(circle, canvas);
         view.addChild(circle);
@@ -35,6 +35,7 @@ var init = function (window) {
         // TODO 3 / 7 : Call the drawCircle() function 
         var loopsCompleted = 0;
         while (loopsCompleted < 100) {
+            drawCircle()
             loopsCompleted++;
         } 
 
@@ -50,21 +51,22 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-            physikz.updatePosition([0]);
-            physikz.updatePosition([1]);
-            physikz.updatePosition([2]);
-            physikz.updatePosition([3]);
-            physikz.updatePosition([4]);
+            physikz.updatePosition([0])
+            physikz.updatePosition([1])
+            physikz.updatePosition([2])
+            physikz.updatePosition([3])
+            physikz.updatePosition([4])
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-            game.checkCirclePosition(/* Your Bracket Notation HERE */);
-            game.checkCirclePosition(/* Your Bracket Notation HERE */);
-            game.checkCirclePosition(/* Your Bracket Notation HERE */);
-            game.checkCirclePosition(/* Your Bracket Notation HERE */);
-            game.checkCirclePosition(/* Your Bracket Notation HERE */); 
+            game.checkCirclePosition(circles[0])
+            game.checkCirclePosition(circles[1])
+            game.checkCirclePosition(circles[2])
+            game.checkCirclePosition(circles[3])
+            game.checkCirclePosition(circles[4])
 
             // TODO 9 : Iterate over the array
            for (var i = 0; i < myArray.length; i++){
-            
+            physikz.updatePosition(circles[i])
+            game.checkCirclePosition(circle[i])
         }
     
         /* 
@@ -80,10 +82,19 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
+            if ( circle.x < 0 ) {
+                circle.x = canvas.width
+            }
+            if ( circle.y > canvas.height ) {
+                circle.y = 0 
+            }
+            if ( circle.y < 0) {
+                circle.y = canvas.height
+            }
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
+
         }
         
         /////////////////////////////////////////////////////////////
@@ -104,7 +115,7 @@ var init = function (window) {
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
-    (typeof process.versions.node !== 'undefined')) {
+    (typeof process.versions.node !== 'undefined')) {}
     // here, export any references you need for tests //
     module.exports = init;
 }
