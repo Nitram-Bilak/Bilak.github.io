@@ -33,13 +33,10 @@ var init = function (window) {
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        drawCircle()
-        drawCircle()
-
-
-        drawCircle()
-        drawCircle()
-        drawCircle()
+        var loopsCompleted = 0;
+        while (loopsCompleted < 100) {
+            loopsCompleted++;
+        } 
 
 
         ////////////////////////////////////////////////////////////
@@ -66,7 +63,7 @@ var init = function (window) {
             game.checkCirclePosition(/* Your Bracket Notation HERE */); 
 
             // TODO 9 : Iterate over the array
-           
+           for (var i = 0; i < myArray.length; i++){
             
         }
     
