@@ -68,7 +68,7 @@ var init = function (window) {
             physikz.updatePosition(circles[i])
             game.checkCirclePosition(circle[i])
         }
-    
+        }
         /* 
         This Function should check the position of a circle that is passed to the 
         Function. If that circle drifts off the screen, this Function should move
@@ -111,6 +111,7 @@ var init = function (window) {
         
         app.addUpdateable(window.opspark.game);
     }
+
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
